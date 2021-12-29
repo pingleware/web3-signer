@@ -1,0 +1,47 @@
+{
+    "name": "web3signer",
+    "version": "1.0.0",
+    "description": "A web3 signer utility",
+    "main": "app.js",
+    "build": {
+        "appId": "work.pingleware.web3-signer",
+        "productName": "web3signer",
+        "copyright": "Copyright © 2021 ${author}",
+        "win": {
+            "icon": "assets/logo.png"
+        },
+        "files": [],
+        "extraFiles": []
+    },
+    "scripts": {
+        "start": "electron .",
+        "pack": "electron-builder --dir",
+        "dist": "electron-builder",
+        "postinstall": "electron-builder install-app-deps",
+        "package-linux": "electron-packager . web3signer --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/web3signer-logo.png --prune=true --out=release-builds",
+        "package-macos": "electron-packager . web3signer --overwrite --platform=darwin --arch=x64 --icon=assets/web3signer-logo.icns --prune=true  --out=release-builds",
+        "create-debian-installer": "electron-installer-debian --src release-builds/web3signer-linux-x64/ --arch amd64 --config debian.json",
+        "create-macos-installer": "hdiutil create release-builds/web3signer.dmg -ov -volname 'web3signer' -fs HFS+ -srcfolder './release-builds/web3signer-darwin-x64/web3signer.app'",
+        "create-macos-postinstaller": "cross-var \"hdiutil convert release-builds/web3signer.dmg -format UDZO -o release-builds/web3signer_darwin_$npm_package_version.dmg\"",
+        "create-macos-cleanup": "rm release-builds/web3signer.dmg",
+        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico",
+        "copy-image-on-windows": "copy C:\\Users\\tbear\\OneDrive\\Pictures\\logo.png assets/logo.png",
+        "copy-image-on-linux": "cp C:/Users/tbear/OneDrive/Pictures/logo.png assets/logo.png",
+        "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\logo.icns assets/logo.icns"
+    },
+    "author": "PressPage Entertainment Inc DBA PINGLEWARE",
+    "license": "CC-BY-4.0",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/pingleware/web3-signer.git"
+    },
+    "devDependencies": {
+        "cross-var": "latest",
+        "electron": "latest",
+        "electron-builder": "latest"
+    },
+    "dependencies": {
+        "body-parser": "latest",
+        "path": "latest"
+    }
+}
