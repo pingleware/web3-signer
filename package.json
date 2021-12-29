@@ -1,6 +1,6 @@
 {
     "name": "web3signer",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A web3 signer utility",
     "main": "app.js",
     "build": {

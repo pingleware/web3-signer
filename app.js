@@ -9,7 +9,7 @@ let mainWindow;
 function createWindow () {
   mainWindow = new BrowserWindow({
     width: 750,
-    height: 800,
+    height: 850,
     icon: "assets/logo.png",
     webPreferences: {
       nodeIntegration: false,

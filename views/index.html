@@ -26,13 +26,14 @@
       <button class="w3-button w3-block w3-black" id="sign-now">Sign</button>
       <br/>
       <label for="signature">Signature</label>
-      <input type="text" class="w3-input w3-block w3-light-grey" id="signature" value="" readonly />
+      <textarea class="w3-input w3-block w3-light-grey" id="signature" rows="3" readonly></textarea>
       <label for="hash">Hash</label>
       <input type="text" class="w3-input w3-block w3-light-grey" id="hash" value="" readonly />
       <p class="w3-panel">
         <fieldset>
           <legend>About</legend>
           <p>The Web3 Signer will sign a string of the wallet address and show the signature and hash which is needed for validation of privilege users in the <a href="https://github.com/pingleware/pingleware-contracts" target="_system">https://github.com/pingleware/pingleware-contracts</a> project.</p>
+          <p>That was identified in <a href="https://github.com/pingleware/pingleware-contracts/issues/1" target="_system">Issue #1</a>.</p>
         </fieldset>
       </p>
       <br/><br/><br/><br/>
@@ -40,7 +41,7 @@
     <!-- FOOTER -->
     <div class="w3-container w3-card w3-blue w3-bottom">
       <p class="w3-center">
-        &copy; 2021 <a href="https://pingleware.work" target="_blank" style="text-decoration: none;">PressPage Entertainment Inc DBA PINGLEWARE</a>
+        &copy; 2021 <a href="https://presspage.info" target="_blank" style="text-decoration: none;">PressPage Entertainment Inc.</a> DBA <a href="https://pingleware.work" target="_blank" style="text-decoration: none;">PINGLEWARE</a>
         &nbsp;All rights reserved.
         &nbsp;<span class="w3-tiny" id="version"></span>
       </p>
@@ -100,11 +101,17 @@
         //let msgHash1 = web3.utils.sha3(msg);        
         // Using eth.accounts.sign() - returns an object
         let privateKey = id("privateKey").value;
-        let sigObj = await web3.eth.accounts.sign(msg, privateKey)
-        let msgHash2 = sigObj.messageHash;
-        let sig2 = sigObj.signature;
-        id("signature").value = sig2;
-        id("hash").value = msgHash2;
+	      let _account = await web3.eth.accounts.privateKeyToAccount(privateKey);
+        if (_account.address != account) {
+          showAlert("error","Incorrect Private Key","Private key provided does not match wallet provided?");
+          return false;
+        } else {
+          let sigObj = await web3.eth.accounts.sign(msg, privateKey)
+          let msgHash2 = sigObj.messageHash;
+          let sig2 = sigObj.signature;
+          id("signature").value = sig2;
+          id("hash").value = msgHash2;
+        }
       }
 
       listener("sign-now","click",function(e){
