@@ -4,7 +4,11 @@ A utility to create a signature and hash of a signed string for use with the htt
 # Preview
 The wallet and private key are generated from ganache-cli and NOT real/live parameters.
 
-![Main window](assets/screenshot-001.png) ![Mismatched Private key and Wallet](assets/screenshot-002.png) ![Successful signing](assets/screenshot-003.png)
+![Main window](assets/screenshot-001.png)
+
+![Mismatched Private key and Wallet](assets/screenshot-002.png)
+
+![Successful signing](assets/screenshot-003.png)
 
 # Release Schedule
 Whenever the code base is updated, a new standalone executable is created and replaced with the existing executable.
