@@ -10,13 +10,23 @@
         "win": {
             "icon": "assets/logo.png"
         },
+        "linux": {
+            "target": "snap",
+            "icon": "assets/logo.png",
+            "category": "Office",
+            "description": "wallet signing utility"
+        },
         "files": [],
         "extraFiles": []
     },
     "scripts": {
         "start": "electron .",
-        "pack": "electron-builder --dir",
+        "pack": "electron-builder --dir -arm",
         "dist": "electron-builder",
+        "pack-arm64": "electron-builder --dir --arm64",
+        "pack-armv7l": "electron-builder --dir --armv7l",
+        "dist-armv7l": "electron-builder --armv7l",
+        "pack-macos": "electron-builder --dir --macos",
         "postinstall": "electron-builder install-app-deps",
         "package-linux": "electron-packager . web3signer --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/web3signer-logo.png --prune=true --out=release-builds",
         "package-macos": "electron-packager . web3signer --overwrite --platform=darwin --arch=x64 --icon=assets/web3signer-logo.icns --prune=true  --out=release-builds",
@@ -29,7 +39,16 @@
         "copy-image-on-linux": "cp C:/Users/tbear/OneDrive/Pictures/logo.png assets/logo.png",
         "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\logo.icns assets/logo.icns"
     },
-    "author": "PressPage Entertainment Inc DBA PINGLEWARE",
+    "author": {
+      "name": "PressPage Entertainment Inc",
+      "email": "presspage.entertainment@gmail.com"
+    },
+    "maintainers": [
+       {
+          "name": "PressPage Entertainment Inc DBA PINGLEWARE",
+          "email": "maintainers@pingleware.work"
+       }
+    ],
     "license": "CC-BY-4.0",
     "repository": {
         "type": "git",
