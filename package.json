@@ -35,10 +35,7 @@
         "create-macos-installer": "hdiutil create release-builds/web3signer.dmg -ov -volname 'web3signer' -fs HFS+ -srcfolder './release-builds/web3signer-darwin-x64/web3signer.app'",
         "create-macos-postinstaller": "cross-var \"hdiutil convert release-builds/web3signer.dmg -format UDZO -o release-builds/web3signer_darwin_$npm_package_version.dmg\"",
         "create-macos-cleanup": "rm release-builds/web3signer.dmg",
-        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico",
-        "copy-image-on-windows": "copy C:\\Users\\tbear\\OneDrive\\Pictures\\logo.png assets/logo.png",
-        "copy-image-on-linux": "cp C:/Users/tbear/OneDrive/Pictures/logo.png assets/logo.png",
-        "copy-image-on-macos": "cp C:\\Users\\tbear\\OneDrive\\Pictures\\logo.icns assets/logo.icns"
+        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico"
     },
     "author": {
       "name": "PressPage Entertainment Inc",
