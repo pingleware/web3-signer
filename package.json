@@ -11,7 +11,7 @@
             "icon": "assets/logo.png"
         },
         "linux": {
-            "target": "snap",
+            "target": "deb",
             "icon": "assets/logo.png",
             "category": "Office",
             "description": "wallet signing utility"
@@ -24,6 +24,7 @@
         "pack": "electron-builder --dir -arm",
         "dist": "electron-builder",
         "pack-arm64": "electron-builder --dir --arm64",
+        "dist-arm64": "electron-builder --arm64",
         "pack-armv7l": "electron-builder --dir --armv7l",
         "dist-armv7l": "electron-builder --armv7l",
         "pack-macos": "electron-builder --dir --macos",
