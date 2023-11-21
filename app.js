@@ -12,7 +12,7 @@ function createWindow () {
     height: 850,
     icon: "assets/logo.png",
     webPreferences: {
-      nodeIntegration: false,
+      nodeIntegration: true,
       contextIsolation: true,
       enableRemoteModule: false,
       preload: path.join(__dirname, "preload.js")

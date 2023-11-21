@@ -10,6 +10,9 @@
         "win": {
             "icon": "assets/logo.png"
         },
+        "mac": {
+            "icon": "assets/logo.icns"
+        },
         "linux": {
             "target": "deb",
             "icon": "assets/logo.png",
@@ -23,6 +26,9 @@
         "start": "electron .",
         "pack": "electron-builder --dir -arm",
         "dist": "electron-builder",
+        "dist:mac": "electron-builder --mac --universal",
+        "dist:win": "electron-builder --win --universal",
+        "dist:snap": "electron-builder --snap --arm64|amd64",
         "pack-arm64": "electron-builder --dir --arm64",
         "dist-arm64": "electron-builder --arm64",
         "pack-armv7l": "electron-builder --dir --armv7l",
@@ -35,7 +41,8 @@
         "create-macos-installer": "hdiutil create release-builds/web3signer.dmg -ov -volname 'web3signer' -fs HFS+ -srcfolder './release-builds/web3signer-darwin-x64/web3signer.app'",
         "create-macos-postinstaller": "cross-var \"hdiutil convert release-builds/web3signer.dmg -format UDZO -o release-builds/web3signer_darwin_$npm_package_version.dmg\"",
         "create-macos-cleanup": "rm release-builds/web3signer.dmg",
-        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico"
+        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico",
+        "png2icns": "./icns_creator.sh assets/logo.png assets/logo"
     },
     "author": {
       "name": "PressPage Entertainment Inc",

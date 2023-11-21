@@ -1,0 +1,17 @@
+name: mweb3-signer
+base: core22
+version: '1.1.0'
+summary: A web3 signer utility using a wallet and private key
+description: |
+  This is a serious flaw with smart contracts that use onlyOwner permissions,
+  because a person can just needs to know the public owner address and then can 
+  invoke the RPC eth_call passing setting the sender with the owner address and 
+  now can hijack the smart contract?
+
+grade: stable
+confinement: strict
+
+parts:
+  my-part:
+    # See 'snapcraft plugins'
+    plugin: nil
