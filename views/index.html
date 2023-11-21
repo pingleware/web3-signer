@@ -96,27 +96,31 @@
 
         const year = new Date().getFullYear();
         if (year > 2021) {
-          document.getElementById("year").innerHTML = `2021=${year}`;
+          document.getElementById("year").innerHTML = `2021-${year}`;
         }
       }
 
       // https://ethereum.stackexchange.com/questions/35425/web3-js-eth-sign-vs-eth-accounts-sign-producing-different-signatures
       const signer = async function() {
-        let account = id("wallet").value;
-        let msg = account;
-        //let msgHash1 = web3.utils.sha3(msg);        
-        // Using eth.accounts.sign() - returns an object
-        let privateKey = id("privateKey").value;
-	      let _account = await web3.eth.accounts.privateKeyToAccount(privateKey);
-        if (_account.address != account) {
-          showAlert("error","Incorrect Private Key","Private key provided does not match wallet provided?");
-          return false;
-        } else {
-          let sigObj = await web3.eth.accounts.sign(msg, privateKey)
-          let msgHash2 = sigObj.messageHash;
-          let sig2 = sigObj.signature;
-          id("signature").value = sig2;
-          id("hash").value = msgHash2;
+        try {
+          let account = id("wallet").value;
+          let msg = account;
+          //let msgHash1 = web3.utils.sha3(msg);        
+          // Using eth.accounts.sign() - returns an object
+          let privateKey = id("privateKey").value;
+          let _account = await web3.eth.accounts.privateKeyToAccount(privateKey);
+          if (_account.address != account) {
+            showAlert("error","Incorrect Private Key","Private key provided does not match wallet provided?");
+            return false;
+          } else {
+            let sigObj = await web3.eth.accounts.sign(msg, privateKey)
+            let msgHash2 = sigObj.messageHash;
+            let sig2 = sigObj.signature;
+            id("signature").value = sig2;
+            id("hash").value = msgHash2;
+          }
+        } catch(error) {
+          showAlert("error","Web3 Error",error);
         }
       }
 

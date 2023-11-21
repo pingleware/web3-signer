@@ -6,13 +6,17 @@ A utility to create a signature and hash of a signed string for use with the htt
 
 The wallet and private key are the COMMUNITY WALLET address and private key generated for the community from [https://github.com/pingleware/pingleware-contracts/tree/main/apps/wallet-creator](https://github.com/pingleware/pingleware-contracts/tree/main/apps/wallet-creator)
 
-![1700567178745](image/README/1700567178745.png)
+![1700570787418](image/README/1700570787418.png)
 
 and if you try to mismatch the wallet with another private key,
 
-![1700567464797](image/README/1700567464797.png)
+![1700570814598](image/README/1700570814598.png)
 
 and error is displayed.
+
+If there are any Web3 Errors, they will be shown as,
+
+![1700570855852](image/README/1700570855852.png)
 
 # Release Schedule
 
@@ -20,7 +24,7 @@ Whenever the code base is updated, a new standalone executable is created and re
 
     Version         Date                Description
     1.1.0         12/26/2021        Added check against private key and wallet provided; signature shows in textarea; screenshots added;
-    1.0.0         12/29/2021        Initial release
+    1.0.0         12/26/2021        Initial release
 
 # EOL or End-of-Life
 
