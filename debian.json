@@ -2,7 +2,7 @@
     "dest": "release-builds/",
     "icon": "assets/logo.png",
     "categories": [
-        "News"
+        "Office"
     ],
     "lintianOverrides": [
         "changelog-file-missing-in-native-package"

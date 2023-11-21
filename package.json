@@ -24,25 +24,20 @@
     },
     "scripts": {
         "start": "electron .",
-        "pack": "electron-builder --dir -arm",
-        "dist": "electron-builder",
         "dist:mac": "electron-builder --mac --universal",
         "dist:win": "electron-builder --win --universal",
         "dist:snap": "snapcraft remote-build --build-on=amd64,arm64",
+        "publish:snap:amd64": "snapcraft upload --release=stable web3-signer_?.?.?_amd64.snap",
+        "publish:snap:arm64": "snapcraft upload --release=stable web3-signer_?.?.?_arm64.snap",
         "pack-arm64": "electron-builder --dir --arm64",
         "dist-arm64": "electron-builder --arm64",
         "pack-armv7l": "electron-builder --dir --armv7l",
         "dist-armv7l": "electron-builder --armv7l",
-        "pack-macos": "electron-builder --dir --macos",
         "postinstall": "electron-builder install-app-deps",
-        "package-linux": "electron-packager . web3signer --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/web3signer-logo.png --prune=true --out=release-builds",
-        "package-macos": "electron-packager . web3signer --overwrite --platform=darwin --arch=x64 --icon=assets/web3signer-logo.icns --prune=true  --out=release-builds",
+        "package-linux": "electron-packager . web3signer --overwrite --asar=true --platform=linux --arch=x64 --icon=assets/logo.png --prune=true --out=release-builds",
         "create-debian-installer": "electron-installer-debian --src release-builds/web3signer-linux-x64/ --arch amd64 --config debian.json",
-        "create-macos-installer": "hdiutil create release-builds/web3signer.dmg -ov -volname 'web3signer' -fs HFS+ -srcfolder './release-builds/web3signer-darwin-x64/web3signer.app'",
-        "create-macos-postinstaller": "cross-var \"hdiutil convert release-builds/web3signer.dmg -format UDZO -o release-builds/web3signer_darwin_$npm_package_version.dmg\"",
-        "create-macos-cleanup": "rm release-builds/web3signer.dmg",
-        "convert-png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico",
-        "png2icns": "./icns_creator.sh assets/logo.png assets/logo"
+        "convert:png2ico": "magick assets/logo.png -background none -resize 128x128 -density 128x128 assets/logo.ico",
+        "convert:png2icns": "./icns_creator.sh assets/logo.png assets/logo"
     },
     "author": {
       "name": "PressPage Entertainment Inc",
@@ -55,6 +50,9 @@
        }
     ],
     "license": "CC-BY-4.0",
+    "bugs": {
+        "url": "https://pingleware.support"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/pingleware/web3-signer.git"
