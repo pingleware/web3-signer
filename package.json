@@ -28,7 +28,7 @@
         "dist": "electron-builder",
         "dist:mac": "electron-builder --mac --universal",
         "dist:win": "electron-builder --win --universal",
-        "dist:snap": "electron-builder --snap --arm64|amd64",
+        "dist:snap": "snapcraft remote-build --build-on=amd64,arm64",
         "pack-arm64": "electron-builder --dir --arm64",
         "dist-arm64": "electron-builder --arm64",
         "pack-armv7l": "electron-builder --dir --armv7l",
