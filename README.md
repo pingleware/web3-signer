@@ -20,7 +20,7 @@ If there are any Web3 Errors, they will be shown as,
 
 # Release Schedule
 
-Whenever the code base is updated, a new standalone executable is created and replaced with the existing executable.
+Whenever the code base is updated, a new standalone executable is created and replaced with the existing executable. You can install the linux version directly from snapcraft.io at [https://snapcraft.io/web3-signer](https://snapcraft.io/web3-signer).
 
     Version         Date                Description
     1.1.0         12/26/2021        Added check against private key and wallet provided; signature shows in textarea; screenshots added;
