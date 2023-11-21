@@ -1,11 +1,11 @@
 {
-    "name": "web3signer",
+    "name": "web3-signer",
     "version": "1.1.0",
     "description": "A web3 signer utility",
     "main": "app.js",
     "build": {
         "appId": "work.pingleware.web3-signer",
-        "productName": "web3signer",
+        "productName": "web-3signer",
         "copyright": "Copyright © 2021 ${author}",
         "win": {
             "icon": "assets/logo.png"
