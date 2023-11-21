@@ -1,4 +1,4 @@
-name: mweb3-signer
+name: web3-signer
 base: core22
 version: '1.1.0'
 summary: A web3 signer utility using a wallet and private key
